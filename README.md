@@ -1,6 +1,5 @@
-# Blog-Documents
-
-https://blog.51cto.com/oldboy 
+# PyJobs
+## Python 爬虫+flask框架+html+javascript实现岗位推荐分析可视化系统,实现工作岗位的实时发现,推荐检索,快速更新以及工作类型的区域分布效果,关键词占比分析等
 
 ## Beautiful Soup的简介与安装
 `Beautiful Soup`是一个可以从HTML或XML文件中提取数据的Python库.它能够通过你喜欢的转换器实现惯用的文档导航,查找,修改文档的功能.`Beautiful Soup`会帮你节省数小时甚至数天的工作时间.#
