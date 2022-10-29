@@ -6,12 +6,10 @@
 @Blog : http://blog.frankdevhub.site
 @Date ：2021/2/18 14:51
 """
-
 import inspect
 from enum import Enum
 
-from .character import CharacterHelper
-
+from character import CharacterHelper
 
 class NumericUnit(Enum):
     # 通用计量单位枚举类

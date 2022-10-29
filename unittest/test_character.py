@@ -14,7 +14,6 @@ from ..tools.character import CharacterHelper
 
 log.basicConfig(level=log.DEBUG)
 
-
 class TestCharacterHelper(unittest.TestCase):
     CHARACTER_EXAMPLE = ('1', '各', '时', '個', '詢', 's', '1', '-')
 
@@ -55,7 +54,6 @@ class TestCharacterHelper(unittest.TestCase):
                 print(f'return value: {bool_res}')
 
         return True
-
 
 if __name__ == '__main__':
     test_suite = unittest.TestSuite()

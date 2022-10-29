@@ -10,7 +10,6 @@
 import inspect
 from enum import Enum, unique
 
-
 @unique
 class EducationDegree(Enum):
     # 教育学历文化水平

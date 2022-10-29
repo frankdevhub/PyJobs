@@ -32,9 +32,7 @@ test_doc_context_xpath = "//div[@class='con editor-preview-side']/p"  # //div[@c
 # 测试获取博客文档以及相关属性
 class TestExamples(unittest.TestCase):
 
-    @staticmethod
-    @unittest.skip
-    def test_get_dom_tree() -> etree:
+    def test_get_dom_tree():
         log.debug('invoke method -> test_get_dom_tree()')
         response = requests.get(url=test_blog_example, headers=test_headers)
         page_context = response.text
@@ -44,7 +42,6 @@ class TestExamples(unittest.TestCase):
         return tree
 
     @staticmethod
-    @unittest.skip
     def test_get_page_doc_list():
         # 测试抓取博客网页对象中的博文简介列表对象
         log.debug('invoke method -> test_get_page_doc_list()')
@@ -62,7 +59,6 @@ class TestExamples(unittest.TestCase):
         return
 
     @staticmethod
-    @unittest.skip
     def test_get_pagination_tags():
         # 测试依据Xpath表达式捕获页脚分页标签对象
         log.debug('invoke method -> test_get_pagination_tags()')
@@ -102,7 +98,6 @@ class TestExamples(unittest.TestCase):
         return tree
 
     @staticmethod
-    @unittest.skip
     def test_get_document_title():
         log.debug('invoke method -> test_get_document_title()')
         # 获取测试博客文档的页面DOM对象
@@ -155,7 +150,6 @@ class TestExamples(unittest.TestCase):
         # 测试遍历博客空间下的每一个分页对象
         log.debug('invoke method -> test_loop_in_pages()')
         pass
-
 
 if __name__ == '__main__':
     test_suite = unittest.TestSuite()
