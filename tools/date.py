@@ -24,7 +24,6 @@ class DateUnit(Enum):
     MONTH = 'month'  # MONTH
     YEAR = 'year'  # YEAR
 
-
 if __name__ == '__main__':
     for enum_instance in DateUnit.__members__:
         print(f'{enum_instance}')
