@@ -14,11 +14,10 @@ from enum import Enum, unique
 class EducationDegree(Enum):
     # 教育学历文化水平
     def __new__(cls, args):
-        instance = object.__new__(cls)
-        instance.name = args['name']  # 学历中文名称
-        instance.code = args['code']  # 学历英文代码
-        return instance
-
+        inst = object.__new__(cls)
+        inst.name = args['name']  # 学历中文名称
+        inst.code = args['code']  # 学历英文代码
+        return inst
 
 DOCTOR = {'name': '博士', 'code': 'doctor'}  # DOCTOR
 MASTER = {'name': '硕士研究生', 'code': 'master'}  # MASTER
@@ -26,7 +25,7 @@ BACHELOR = {'name': '本科', 'code': 'bachelor'}  # BACHELOR
 TACHNICAL_COLLEGE = {'name': '中专', 'code': 'technical_college'}  # TACHNICAL_COLLEGE
 
 if __name__ == '__main__':
-    for enum_instance in EducationDegree.__members__:
-        print(f'{enum_instance}')
-        for (type_name, obj) in inspect.getmembers(enum_instance):
+    for inst in EducationDegree.__members__:
+        print(f'{inst}')
+        for (type_name, obj) in inspect.getmembers(inst):
             print(f'type_name: {type_name}, obj: {obj}')

@@ -22,7 +22,6 @@ def is_unit_by_thousand(text: str) -> bool:
     @param: text 薪资描述字符串
     @rtype: bool
     """
-    log.info(f'invoke method -> is_unit_by_thousand(), salary unit text: {text}')
     try:
         unit = NumericUnit(text.strip())
     except ValueError as e:
@@ -39,7 +38,6 @@ def is_unit_by_ten_thousand(text: str) -> bool:
     @param: text 薪资描述字符串
     @rtype: bool
     """
-    log.info(f'invoke method -> is_unit_by_ten_thousand(), salary unit text: {text}')
     try:
         unit = NumericUnit(text.strip())
     except ValueError as e:
@@ -58,7 +56,6 @@ def is_unit_by_day(text: str) -> bool:
     @param: text 薪资描述字符串
     @rtype: bool
     """
-    log.info(f'invoke method -> is_unit_by_day(), time unit text: {text}')
     try:
         unit = DateUnit(text.strip())
     except ValueError as e:
@@ -75,7 +72,6 @@ def is_unit_by_month(text: str) -> bool:
     @param: text 薪资描述字符串
     @rtype: bool
     """
-    log.info(f'invoke method -> is_unit_by_month(), time unit text: {text}')
     try:
         unit = DateUnit(text.strip())
     except ValueError as e:
@@ -94,7 +90,6 @@ def is_unit_by_year(text: str) -> bool:
     @return:
     @rtype: bool
     """
-    log.info(f'invoke method -> is_unit_by_year(), time unit text: {text}')
     try:
         unit = DateUnit(text.strip())
     except ValueError as e:

@@ -24,7 +24,6 @@ class DjangoORMTest(unittest.TestCase):
     @staticmethod
     def test_insert():
         # 测试新增博客文档对象
-        log.debug('invoke method -> test_insert()')
         obj = BlogDocumentBrief('', 'blog_domain', 'doc_title')
         obj.save()
 

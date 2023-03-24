@@ -14,21 +14,22 @@ from character import CharacterHelper
 class NumericUnit(Enum):
     # 通用计量单位枚举类
     def __new__(cls, unit: chr):
-        instance = object.__new__(cls)
-        instance.unit = unit
-        instance_members = [(obj, type(obj)) for (type_name, obj) in inspect.getmembers(CharacterHelper) if
+        inst = object.__new__(cls)
+        inst.unit = unit
+        inst_members = [(obj, type(obj)) for (type_name, obj) in inspect.getmembers(CharacterHelper) if
                             inspect.isfunction(obj)]
 
-        for inst in instance_members:
-            func = inst[0]
+        for inst in inst_members:
+            func = inst_members[0]
             print(f'func_name: {func.__name__} ,args_count: {func.__code__.co_argcount}')
             fun_name = func.__name__
             if fun_name.lstrip().startswith('is_'):
                 bool_res = func(unit)
                 assert isinstance(bool_res, bool)
-                setattr(instance, func.__name__, bool_res)
+                setattr(inst, func.__name__, bool_res)
                 print(f'func_name: {func.__name__} ,return: {bool_res}')
-        return instance
+
+        return inst
 
     Digitis_CN = '个'  # 个位数 简体中文
     Digitis_TW = '個'  # 个位数 繁体中文
@@ -40,7 +41,6 @@ class NumericUnit(Enum):
     Ten_Thousand_CN = '万'  # 万位数 中文简体
     Ten_Thousand_TW = '萬'  # 万位数 繁体中文
     Ten_Thousand_EN = 'W'  # 万位数 英文字符
-
 
 if __name__ == '__main__':
     for enum_instance in NumericUnit.__members__:

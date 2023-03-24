@@ -28,12 +28,10 @@ test_doc_title_xpath = "//div[@class='title']/h1"  # //div[@class='title']/h1 �
 test_doc_summary_xpath = "//div[@class='con editor-preview-side']/p/strong/span/span"  # //div[@class='con editor-preview-side']/p/strong/span/span 博客文档对象摘要
 test_doc_context_xpath = "//div[@class='con editor-preview-side']/p"  # //div[@class='con editor-preview-side']/p 博客文档对象的正文内容
 
-
 # 测试获取博客文档以及相关属性
 class TestExamples(unittest.TestCase):
 
     def test_get_dom_tree():
-        log.debug('invoke method -> test_get_dom_tree()')
         response = requests.get(url=test_blog_example, headers=test_headers)
         page_context = response.text
         tree = etree.HTML(page_context)
@@ -44,7 +42,6 @@ class TestExamples(unittest.TestCase):
     @staticmethod
     def test_get_page_doc_list():
         # 测试抓取博客网页对象中的博文简介列表对象
-        log.debug('invoke method -> test_get_page_doc_list()')
         docs_xpath = test_docs_list_xpath
         print(f'using xpath = {str(docs_xpath)}')
         response = requests.get(url=test_blog_example, headers=test_headers)
@@ -61,9 +58,7 @@ class TestExamples(unittest.TestCase):
     @staticmethod
     def test_get_pagination_tags():
         # 测试依据Xpath表达式捕获页脚分页标签对象
-        log.debug('invoke method -> test_get_pagination_tags()')
         page_tree = TestExamples.test_get_dom_tree()
-
         # 获取分页控件对象集合
         print(f'using xpath = {test_pagination_tags_xpath}')
         pagination_tags = page_tree.xpath(test_pagination_tags_xpath)
@@ -87,7 +82,6 @@ class TestExamples(unittest.TestCase):
     @staticmethod
     def doc_tree_example():
         # 获取测试博客文档页面的DOM树对象
-        log.debug('invoke method -> doc_tree_example()')
         # 测试博客文档连接:test_doc_link
         response = requests.get(url=test_doc_link, headers=test_headers)
         page_context = response.text
@@ -99,7 +93,6 @@ class TestExamples(unittest.TestCase):
 
     @staticmethod
     def test_get_document_title():
-        log.debug('invoke method -> test_get_document_title()')
         # 获取测试博客文档的页面DOM对象
         page_tree = TestExamples.doc_tree_example()
         # 【测试-1】: 获取文档对象大标题 eg: LDAP跨多机房统一认证及授权管理精品解决方案
@@ -112,7 +105,6 @@ class TestExamples(unittest.TestCase):
     def test_get_document_properties():
         # 测试获取文档对象的各个属性
         # 测试链接: https://blog.51cto.com/oldboy/1189530
-        log.debug('invoke method -> test_get_document_properties()')
         # 获取测试博客文档的页面DOM对象
         page_tree = TestExamples.doc_tree_example()
 
@@ -141,14 +133,12 @@ class TestExamples(unittest.TestCase):
     @unittest.skip
     def loop_page_example():
         # 测试遍历当前页面对象,获取当前页面对象,遍历博客文档简介列表中文档的链接
-        log.debug('invoke method ->loop_page_example()')
         pass
 
     @staticmethod
     @unittest.skip
     def test_loop_in_pages():
         # 测试遍历博客空间下的每一个分页对象
-        log.debug('invoke method -> test_loop_in_pages()')
         pass
 
 if __name__ == '__main__':

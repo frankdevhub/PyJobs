@@ -20,7 +20,6 @@ class TestCharacterHelper(unittest.TestCase):
     @staticmethod
     def test_is_simple_chinese_character():
         # 测试是否是简体中文字符
-        log.debug('invoke method -> test_is_simple_chinese_character()')
         examples = TestCharacterHelper.CHARACTER_EXAMPLE
         for x in examples:
             print(type(x))
@@ -32,7 +31,6 @@ class TestCharacterHelper(unittest.TestCase):
     @staticmethod
     def test_get_instance_methods():
         # 测试获取类的函数成员变量
-        log.debug('invoke method -> test_get_instance_methods()')
         '''
         eg:
          (<function CharacterHelper.character_pattern_match at 0x000001A5D009F3A0>, "<class 'function'>")
@@ -52,10 +50,11 @@ class TestCharacterHelper(unittest.TestCase):
                 bool_res = func(test_example)
                 assert isinstance(bool_res, bool)
                 print(f'return value: {bool_res}')
-
+                
         return True
 
 if __name__ == '__main__':
+    print('sss')
     test_suite = unittest.TestSuite()
     test_suite.addTest(TestCharacterHelper('test_is_simple_chinese_character'))  # test_is_simple_chinese_character
     test_suite.addTest(TestCharacterHelper('test_get_instance_methods'))  # test_get_instance_methods

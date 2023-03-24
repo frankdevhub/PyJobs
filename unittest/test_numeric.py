@@ -18,7 +18,6 @@ log.basicConfig(level=log.DEBUG)
 class TestNumericUnit(unittest.TestCase):
 
     def test_numeric_unit_members(self):
-        log.debug('invoke method -> test_numeric_unit_members()')
         for instance in NumericUnit.__members__:
             print(f'{instance}')
             for (type_name, obj) in inspect.getmembers(instance):

@@ -13,9 +13,9 @@ from enum import Enum, unique
 class CharacterEncode(Enum):
     # 通用国际字符编码
     def __new__(cls, name: str):
-        instance = object.__new__(cls)
-        instance.code_name = name
-        return instance
+        inst = object.__new__(cls)
+        inst.code_name = name
+        return inst
 
     GB2312 = 'GB2312'  # GB2312
     ASCII = 'ASCII'  # ASCII
@@ -28,7 +28,7 @@ class CharacterEncode(Enum):
 
 
 if __name__ == '__main__':
-    for enum_instance in CharacterEncode.__members__:
-        print(f'{enum_instance}')
-        for (type_name, obj) in inspect.getmembers(enum_instance):
+    for inst in CharacterEncode.__members__:
+        print(f'{inst}')
+        for (type_name, obj) in inspect.getmembers(inst):
             print(f'type_name: {type_name}, obj: {obj}')

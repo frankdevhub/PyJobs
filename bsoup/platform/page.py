@@ -41,7 +41,6 @@ def valid_url(f):
 
     return decorated
 
-
 @valid_url
 def get_page_html_context(url_link: str) -> str:
     """
@@ -50,9 +49,7 @@ def get_page_html_context(url_link: str) -> str:
     @return:
     @rtype: str
     """
-    log.info('invoke method -> get_page_html_context()')
     print(f'get_page_html_context, request_url = {url_link}')
-    ##
     start = time.time()
     response = requests.get(url=url_link, headers=header)
     page_ctx = response.text
@@ -60,7 +57,6 @@ def get_page_html_context(url_link: str) -> str:
     print(f'time cost: {end - start} Seconds')
 
     return page_ctx
-
 
 def get_index(m, is_next: bool):
     """
@@ -73,8 +69,6 @@ def get_index(m, is_next: bool):
     @return: 上一页或下一页的页面下标索引
     @rtype: str
     """
-    log.info('invoke method -> get_index()')
-    ###
     if m:
         full_group = m.group()
         group_str = m.group(1)
@@ -98,7 +92,6 @@ def get_previous_page(url_link: str) -> str:
     @return: 上一页链接地址
     @rtype: str
     """
-    log.info('invoke method -> get_previous_page()')
     print(f'get_previous_page, url_link = {url_link}')
     url_link = re.sub('\\t|\\s|\\n', '', url_link, re.M | re.I)
 
@@ -112,7 +105,6 @@ def get_previous_page(url_link: str) -> str:
 
     return p_url
 
-
 @valid_url
 def get_next_page(url_link: str) -> str:
     """
@@ -122,7 +114,6 @@ def get_next_page(url_link: str) -> str:
     @return: 下一页链接地址
     @rtype: str
     """
-    log.info('invoke method -> get_next_page()')
     print(f'get_next_page, url_link = {url_link}')
     url_link = re.sub('\\t|\\s|\\n', '', url_link, re.M | re.I)
 
@@ -133,8 +124,8 @@ def get_next_page(url_link: str) -> str:
 
     assert n_url.isspace() is not True
     print(f'next page url_link = {n_url}')
+    
     return n_url
-
 
 @valid_url
 def get_search_keyword(url_link: str) -> str:
@@ -145,9 +136,7 @@ def get_search_keyword(url_link: str) -> str:
     @return: 链接中的搜索关键字
     @rtype: str
     """
-    log.info('invoke method -> get_search_keyword()')
     print(f'get_search_keyword, url_link = {url_link}')
-
     expr = BusinessConstants.DEFAULT_HTTP_LINK_MARK_REGEX
     p = re.compile(expr)
     m = p.match(url_link, re.M | re.I)
@@ -170,9 +159,7 @@ def get_page_union_id(url_link: str) -> str:
     @return: 页面链接中的唯一标识
     @rtype: str
     """
-    log.info('invoke method -> get_page_union_id()')
     print(f'get_page_union_id, url_link = {url_link}')
-
     expr = BusinessConstants.DEFAULT_HTTP_LINK_MARK_REGEX
     p = re.compile(expr)
     m = p.match(url_link, re.M | re.I)

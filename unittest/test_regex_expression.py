@@ -22,14 +22,13 @@ test_blog_doc_links = ["https://blog.51cto.com/oldboy/1926142",  # docId= 192614
                        "https://blog.51cto.com/oldboy/7750568",  # docId= 7750568
                        "https://blog.51cto.com/oldboy/1855461",  # docId= 1855461
                        "https://blog.51cto.com/oldboy/1911034"]  # docId= 1911034
-
+                       
 
 class TestRegexExpression(unittest.TestCase):
 
     @staticmethod
     def test_match_blog_union_id():
         # 测试正则表达式匹配博客文章链接的唯一标识
-        # log.debug('invoke method -> test_match_blog_union_id()')
         test_example = test_blog_doc_link
         print(f'test_blog_doc_link: {test_example}')
         # matched = re.search(r'[0-9]{1,}$', test_example, re.M | re.I)
@@ -43,7 +42,6 @@ class TestRegexExpression(unittest.TestCase):
     @staticmethod
     def test_match_blog_union_ids():
         # 测试逐个匹配51cto博客测试链接集合,匹配博文的唯一标识
-        # log.debug('invoke method -> test_match_blog_union_ids()')
         for link in test_blog_doc_links:
             print(link)
             test_example = test_blog_doc_link

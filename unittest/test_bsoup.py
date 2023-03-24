@@ -48,7 +48,6 @@ class TestBeautifulSoup(unittest.TestCase):
     @staticmethod
     def test_51cto_blog_etree() -> etree:
         # 测试抓取博客网页文本html原始内容
-        log.debug('invoke method -> test_51cto_blog_etree()')
         response = requests.get(url=test_51cto_blog_example, headers=test_headers)
         page_context = response.text
         # print(page_context)
@@ -61,7 +60,6 @@ class TestBeautifulSoup(unittest.TestCase):
     @staticmethod
     def test_51cto_get_page_docs():
         # 测试抓取博客网页对象中的博文简介列表对象
-        log.debug('invoke method -> test_51cto_get_page_docs()')
         docs_xpath = test_51cto_docs_list_xpath
         print(f'using xpath = {str(docs_xpath)}')
         # docs_tree = test_51cto_blog_example()
@@ -78,7 +76,6 @@ class TestBeautifulSoup(unittest.TestCase):
     @staticmethod
     def test_51cto_get_pagination_tags():
         # 测试依据Xpath表达式捕获页脚分页标签对象
-        log.debug('invoke method -> test_51cto_get_pagination_tags()')
         page_tree = TestBeautifulSoup.test_51cto_blog_etree()
         assert page_tree is not None, 'page_tree cannot be none'
 
@@ -86,7 +83,7 @@ class TestBeautifulSoup(unittest.TestCase):
         pagination_tags = page_tree.xpath(test_51cto_pagination_tags_xpath)
         assert pagination_tags is not None, 'pagination_tags cannot be none'
         print(f'pagination_tags size = {len(pagination_tags)}')
-
+        
         # 遍历分页标签对象集合,获取每一个分页标签对象的超链接地址
         for tag in pagination_tags:
             print(tag)

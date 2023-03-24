@@ -12,6 +12,5 @@ import os
 log.basicConfig(level=log.DEBUG)
 
 if __name__ == '__main__':
-    log.debug('init sqlacodegen')
     cmd = "sqlacodegen  mysql+pymysql://root:root@admin6@localhost:3306/jobs --outfile sqlacodegen_models.py"
     os.system(cmd)
