@@ -10,10 +10,9 @@ import inspect
 import logging as log
 import unittest
 
-from ..tools.numeric import NumericUnit
+from ..tools.unit import NumericUnit
 
 log.basicConfig(level=log.DEBUG)
-
 
 class TestNumericUnit(unittest.TestCase):
 
