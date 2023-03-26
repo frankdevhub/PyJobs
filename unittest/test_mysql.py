@@ -12,7 +12,6 @@ import sys
 
 import mysql
 
-
 def generate(database_name):
     """
     生成数据库字典表

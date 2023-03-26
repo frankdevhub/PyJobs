@@ -9,7 +9,7 @@
 import inspect
 from enum import Enum
 
-from character import CharacterHelper
+from chars import CharacterHelper
 
 class NumericUnit(Enum):
     # 通用计量单位枚举类

@@ -10,7 +10,7 @@
 import logging as log
 
 from ...tools.date import DateUnit
-from ...tools.numeric import NumericUnit
+from ...tools.unit import NumericUnit
 
 log.basicConfig(level=log.INFO)
 
