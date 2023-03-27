@@ -26,7 +26,6 @@ class CharacterEncode(Enum):
     UTF8 = 'UTF8'  # UTF8
     Base64 = 'Base64'  # Base64
 
-
 if __name__ == '__main__':
     for inst in CharacterEncode.__members__:
         print(f'{inst}')

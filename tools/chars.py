@@ -13,6 +13,7 @@ from encode import CharacterEncode
 
 log.basicConfig(level=log.INFO)
 
+
 class CharacterHelper:
     # 通用国际字符编码
     CN_CHARACTERS = "[\\u4E00-\\u9FA5]"  # 中文字符 CN_CHARACTERS
@@ -22,38 +23,38 @@ class CharacterHelper:
     SYMBOL_CHARACTERS = "[a-zA-Z0-9\\u4E00-\\u9FA5]"  # 符号类字符 SYMBOL_CHARACTERS
 
     @staticmethod
-    def character_pattern_match(target: chr, expression: chr) -> bool:
+    def character_pattern_match(char: chr, expression: chr) -> bool:
         # 匹配字符对象
         pattern = re.compile(expression, re.M | re.I)
-        matched = pattern.search(target)
+        matched = pattern.search(char)
         if matched:
             return True
         else:
             return False
 
     @staticmethod
-    def is_chinese_character(target: chr) -> bool:
+    def is_chinese_character(char):
         # 判断是否是中文字符
         matched = CharacterHelper.character_pattern_match(
-            target, CharacterHelper.CN_CHARACTERS)
+            char, CharacterHelper.CN_CHARACTERS)
         return matched
 
     @staticmethod
-    def is_simple_chinese_character(target: chr) -> bool:
+    def is_simple_chinese_character(char):
         """
         判断是否是简体中文字符
-        @param target:
+        @param char: 字符对象
         @return:
         """
-        is_chinese = CharacterHelper.is_chinese_character(target)
+        is_chinese = CharacterHelper.is_chinese_character(char)
         if is_chinese:
             is_tw = False  # 是否是繁体中文字符
             try:
                 encode = CharacterEncode.GB2312.code_name
-                decode_target = target.encode(encode).decode(encode)
+                decode_char = char.encode(encode).decode(encode)
                 print(
-                    f'source character : {target}，decode(GB2312): {decode_target}')
-                if target == decode_target:
+                    f'source character : {char}，decode(GB2312): {decode_char}')
+                if char == decode_char:
                     return True
                 else:
                     is_tw = True
@@ -64,29 +65,29 @@ class CharacterHelper:
                 return False
             finally:
                 if is_tw:
-                    print(f'character: {target} is not a simple chinese character '
+                    print(f'character: {char} is not a simple chinese character '
                           f'(possible should be taiwanese character).')
         else:
-            print(f'character: {target} is not a chinese character.')
+            print(f'character: {char} is not a chinese character.')
             return False
 
     @staticmethod
-    def is_taiwanese_character(target: chr) -> bool:
+    def is_taiwanese_character(char):
         """
         判断是否是繁体中文字符
-        @param target:
-        @return:
+        @param char: 字符对象
+        @return: 字符是否是繁体中文字符（boolean）
         """
         log.info('invoke method -> is_taiwanese_character()')
-        is_chinese = CharacterHelper.is_chinese_character(target)
+        is_chinese = CharacterHelper.is_chinese_character(char)
         if is_chinese:
             is_simple_cn = False  # 是否是中文简体字符
             try:
                 encode = CharacterEncode.Big5.code_name
-                decode_target = target.encode(encode).decode(encode)
+                decode_char = char.encode(encode).decode(encode)
                 print(
-                    f'source character : {target}，decode(Big5): {decode_target}')
-                if target == decode_target:
+                    f'source character : {char}，decode(Big5): {decode_char}')
+                if char == decode_char:
                     return True
                 else:
                     is_simple_cn = False
@@ -97,48 +98,48 @@ class CharacterHelper:
                 return False
             finally:
                 if is_simple_cn:
-                    print(f'character: {target} is not taiwanese character '
+                    print(f'character: {char} is not taiwanese character '
                           f'(possible should be simple chinese character).')
         else:
-            print(f'character: {target} is not a chinese character.')
+            print(f'character: {char} is not a chinese character.')
             return False
 
     @staticmethod
-    def is_english_character(target: chr) -> bool:
+    def is_english_character(char):
         """
         判断是否是英文字符
-        @param target:
+        @param char:
         @return:
         """
         matched = CharacterHelper.character_pattern_match(
-            target, CharacterHelper.EN_CHARACTERS)
+            char, CharacterHelper.EN_CHARACTERS)
         return matched
 
     @staticmethod
-    def is_english_capital_character(target: chr) -> bool:
+    def is_english_capital_character(char):
         """
         判断是否是英文大写字符
-        @param target:
+        @param char: 
         @return:
         """
         matched = CharacterHelper.character_pattern_match(
-            target, CharacterHelper.EN_CAPITAL_CHARACTERS)
+            char, CharacterHelper.EN_CAPITAL_CHARACTERS)
         return matched
 
     @staticmethod
-    def is_numeric_character(target: chr) -> bool:
+    def is_numeric_character(char):
         """
         判断是否是数值类字符
-        @param target:
+        @param char:
         @return:
         """
         matched = CharacterHelper.character_pattern_match(
-            target, CharacterHelper.NUMERIC_CHARACTERS)
+            char, CharacterHelper.NUMERIC_CHARACTERS)
         return matched
 
     @staticmethod
-    def is_symbol_character(target: chr) -> bool:
+    def is_symbol_character(char):
         # 判断是否是符号类字符
         matched = CharacterHelper.character_pattern_match(
-            target, CharacterHelper.SYMBOL_CHARACTERS)
+            char, CharacterHelper.SYMBOL_CHARACTERS)
         return matched
