@@ -15,13 +15,11 @@ from ..tools.unit import NumericUnit
 log.basicConfig(level=log.DEBUG)
 
 class TestNumericUnit(unittest.TestCase):
-
     def test_numeric_unit_members(self):
         for instance in NumericUnit.__members__:
             print(f'{instance}')
             for (type_name, obj) in inspect.getmembers(instance):
                 print(f'type_name: {type_name}, obj: {obj}')
-
 
 if __name__ == '__main__':
     test_suite = unittest.TestSuite()

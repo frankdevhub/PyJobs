@@ -6,7 +6,6 @@
 @Blog : http://blog.frankdevhub.site
 @Date ：2021/9/4 17:15
 """
-
 import logging as log
 import unittest
 
@@ -14,7 +13,6 @@ from ..data.sqlacodegen_models import *
 from ..data.sqlalchemy_orm import *
 
 log.basicConfig(level=log.DEBUG)
-
 
 class TestModelORM(unittest.TestCase):
 
@@ -45,7 +43,6 @@ class TestModelORM(unittest.TestCase):
     def test_update_document(self):
         # 测试更新实体对象
         pass
-
 
 if __name__ == '__main__':
     test_suite = unittest.TestSuite()

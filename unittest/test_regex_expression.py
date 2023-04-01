@@ -22,7 +22,6 @@ test_blog_doc_links = ["https://blog.51cto.com/oldboy/1926142",  # docId= 192614
                        "https://blog.51cto.com/oldboy/7750568",  # docId= 7750568
                        "https://blog.51cto.com/oldboy/1855461",  # docId= 1855461
                        "https://blog.51cto.com/oldboy/1911034"]  # docId= 1911034
-                       
 
 class TestRegexExpression(unittest.TestCase):
 
@@ -47,7 +46,6 @@ class TestRegexExpression(unittest.TestCase):
             test_example = test_blog_doc_link
             matched = re.search(test_blog_doc_id_regex, test_example, re.M | re.I)
             print(f'docId = {matched.group()}')
-
 
 if __name__ == "__main__":
     testunit = unittest.TestSuite()
