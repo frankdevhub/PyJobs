@@ -8,7 +8,6 @@
 """
 import inspect
 from enum import Enum
-
 from chars import CharacterHelper
 
 class NumericUnit(Enum):
