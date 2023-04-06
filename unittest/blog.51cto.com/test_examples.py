@@ -31,6 +31,7 @@ test_doc_context_xpath = "//div[@class='con editor-preview-side']/p"  # //div[@c
 # 测试获取博客文档以及相关属性
 class TestExamples(unittest.TestCase):
 
+    @staticmethod
     def test_get_dom_tree():
         response = requests.get(url=test_blog_example, headers=test_headers)
         page_context = response.text
@@ -47,7 +48,6 @@ class TestExamples(unittest.TestCase):
         response = requests.get(url=test_blog_example, headers=test_headers)
         page_context = response.text
         docs_tree = etree.HTML(page_context)
-
         # 文档页面DOM树对象
         assert docs_tree is not None, 'xml tree cannot be none'
         page_docs = docs_tree.xpath(docs_xpath)
