@@ -10,9 +10,7 @@ import logging as log
 import re
 
 from encode import CharacterEncode
-
 log.basicConfig(level=log.INFO)
-
 
 class CharacterHelper:
     # 通用国际字符编码
