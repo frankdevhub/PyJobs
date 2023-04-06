@@ -31,15 +31,9 @@ class TestCharacterHelper(unittest.TestCase):
     @staticmethod
     def test_get_instance_methods():
         # 测试获取类的函数成员变量
-        '''
-        eg:
-         (<function CharacterHelper.character_pattern_match at 0x000001A5D009F3A0>, "<class 'function'>")
-         (<function CharacterHelper.is_english_capital_character at 0x0000027B80CBF790>, "<class 'function'>")
-        '''
         instance_members = [(obj, type(obj)) for (type_name, obj) in inspect.getmembers(CharacterHelper) if
                             inspect.isfunction(obj)]
         # print(instance_members)
-        # log.debug(instance_members)
         test_example = "個"  # 测试使用字符
 
         for inst in instance_members:
@@ -50,11 +44,10 @@ class TestCharacterHelper(unittest.TestCase):
                 bool_res = func(test_example)
                 assert isinstance(bool_res, bool)
                 print(f'return value: {bool_res}')
-                
+
         return True
 
 if __name__ == '__main__':
-    print('sss')
     test_suite = unittest.TestSuite()
     test_suite.addTest(TestCharacterHelper('test_is_simple_chinese_character'))  # test_is_simple_chinese_character
     test_suite.addTest(TestCharacterHelper('test_get_instance_methods'))  # test_get_instance_methods
