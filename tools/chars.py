@@ -39,11 +39,6 @@ class CharacterHelper:
 
     @staticmethod
     def is_simple_chinese_character(char):
-        """
-        判断是否是简体中文字符
-        @param char: 字符对象
-        @return:
-        """
         is_chinese = CharacterHelper.is_chinese_character(char)
         if is_chinese:
             is_tw = False  # 是否是繁体中文字符
@@ -71,11 +66,6 @@ class CharacterHelper:
 
     @staticmethod
     def is_taiwanese_character(char):
-        """
-        判断是否是繁体中文字符
-        @param char: 字符对象
-        @return: 字符是否是繁体中文字符（boolean）
-        """
         log.info('invoke method -> is_taiwanese_character()')
         is_chinese = CharacterHelper.is_chinese_character(char)
         if is_chinese:
@@ -104,33 +94,18 @@ class CharacterHelper:
 
     @staticmethod
     def is_english_character(char):
-        """
-        判断是否是英文字符
-        @param char:
-        @return:
-        """
         matched = CharacterHelper.character_pattern_match(
             char, CharacterHelper.EN_CHARACTERS)
         return matched
 
     @staticmethod
     def is_english_capital_character(char):
-        """
-        判断是否是英文大写字符
-        @param char: 
-        @return:
-        """
         matched = CharacterHelper.character_pattern_match(
             char, CharacterHelper.EN_CAPITAL_CHARACTERS)
         return matched
 
     @staticmethod
     def is_numeric_character(char):
-        """
-        判断是否是数值类字符
-        @param char:
-        @return:
-        """
         matched = CharacterHelper.character_pattern_match(
             char, CharacterHelper.NUMERIC_CHARACTERS)
         return matched
