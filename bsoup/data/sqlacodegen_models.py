@@ -6,7 +6,6 @@ from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 metadata = Base.metadata
 
-
 class BlogDocumentBrief(Base):
     __tablename__ = '51cto_blog_docs_brief'
     __table_args__ = {'comment': '51CTO-博客文档列表内容'}

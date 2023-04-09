@@ -16,7 +16,6 @@ from ..models.models import BlogDocumentBrief
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'blog_sites.settings')
 django.setup()
-
 log.basicConfig(level=log.DEBUG)
 
 class DjangoORMTest(unittest.TestCase):

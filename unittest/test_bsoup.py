@@ -22,7 +22,6 @@ test_51cto_blog_example = "https://blog.51cto.com/oldboy"  # https://blog.51cto.
 test_51cto_docs_list_xpath = "//div[@class='common-article-list']"  # //div[@class="common-article-list"] 博客个人空间页面下当前页下的文档对象集合
 test_51cto_pagination_tags_xpath = "//ul[@class='pagination']/li/a"  # //ul[@class='pagination']/li/a 博客个人空间当前页页脚分页控件对象
 
-
 class TestBeautifulSoup(unittest.TestCase):
 
     @staticmethod
@@ -98,7 +97,6 @@ class TestBeautifulSoup(unittest.TestCase):
             print(f'attribute data-page = {tag.get("data-page")}')
             # href
             print(f'attribute href = {tag.get("href")}')
-
 
 if __name__ == '__main__':
     test_suite = unittest.TestSuite()

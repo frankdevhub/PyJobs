@@ -8,6 +8,7 @@
 """
 import importlib
 import sys
+
 import mysql
 
 def generate(database_name):
