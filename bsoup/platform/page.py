@@ -43,12 +43,6 @@ def valid_url(f):
 
 @valid_url
 def get_page_html_context(url_link: str) -> str:
-    """
-    请求获取页面对象的字符串
-    @param url_link:
-    @return:
-    @rtype: str
-    """
     print(f'get_page_html_context, request_url = {url_link}')
     start = time.time()
     response = requests.get(url=url_link, headers=header)
@@ -59,16 +53,6 @@ def get_page_html_context(url_link: str) -> str:
     return page_ctx
 
 def get_index(m, is_next: bool):
-    """
-    获取页面链接中的页数相关的字段
-     eg:
-       input:
-       output = 2
-    @param m: 正则返回的匹配结果集合
-    @param is_next: 是否下一页, 是 = True 否 = False
-    @return: 上一页或下一页的页面下标索引
-    @rtype: str
-    """
     if m:
         full_group = m.group()
         group_str = m.group(1)
@@ -85,13 +69,6 @@ def get_index(m, is_next: bool):
 
 @valid_url
 def get_previous_page(url_link: str) -> str:
-    """
-    获取上一页链接地址
-    eg:
-    @param url_link: 当前页面的链接地址
-    @return: 上一页链接地址
-    @rtype: str
-    """
     print(f'get_previous_page, url_link = {url_link}')
     url_link = re.sub('\\t|\\s|\\n', '', url_link, re.M | re.I)
 
@@ -107,13 +84,6 @@ def get_previous_page(url_link: str) -> str:
 
 @valid_url
 def get_next_page(url_link: str) -> str:
-    """
-    获取上一页链接地址
-    eg:
-    @param url_link: 当前页面的链接地址
-    @return: 下一页链接地址
-    @rtype: str
-    """
     print(f'get_next_page, url_link = {url_link}')
     url_link = re.sub('\\t|\\s|\\n', '', url_link, re.M | re.I)
 
@@ -129,13 +99,6 @@ def get_next_page(url_link: str) -> str:
 
 @valid_url
 def get_search_keyword(url_link: str) -> str:
-    """
-    获取搜索链接中的职位搜索关键字
-    eg:
-    @param url_link: 当前页面的链接地址
-    @return: 链接中的搜索关键字
-    @rtype: str
-    """
     print(f'get_search_keyword, url_link = {url_link}')
     expr = BusinessConstants.DEFAULT_HTTP_LINK_MARK_REGEX
     p = re.compile(expr)
@@ -152,13 +115,6 @@ def get_search_keyword(url_link: str) -> str:
 
 @valid_url
 def get_page_union_id(url_link: str) -> str:
-    """
-    获取页面链接中的唯一标识
-    eg:
-    @param url_link: 页面链接
-    @return: 页面链接中的唯一标识
-    @rtype: str
-    """
     print(f'get_page_union_id, url_link = {url_link}')
     expr = BusinessConstants.DEFAULT_HTTP_LINK_MARK_REGEX
     p = re.compile(expr)

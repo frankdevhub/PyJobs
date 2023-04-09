@@ -11,10 +11,8 @@ import sys
 
 import mysql
 
+
 def generate(database_name):
-    """
-    生成数据库字典表
-    """
     importlib.reload(sys)
     # 使用前修改配置
     conn = mysql.connector.connect(
@@ -49,6 +47,7 @@ def generate(database_name):
         f.writelines(p)
 
     f.close()
+
 
 if __name__ == '__main__':
     generate('tbname')

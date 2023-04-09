@@ -17,11 +17,6 @@ log.basicConfig(level=log.INFO)
 __all__ = ['parse_salary_text', 'convert_context', 'convert_data']
 
 def is_unit_by_thousand(text: str) -> bool:
-    """
-    是否是以千为计量单位
-    @param: text 薪资描述字符串
-    @rtype: bool
-    """
     try:
         unit = NumericUnit(text.strip())
     except ValueError as e:
@@ -33,11 +28,6 @@ def is_unit_by_thousand(text: str) -> bool:
         return False
 
 def is_unit_by_ten_thousand(text: str) -> bool:
-    """
-    是否是以万为计量单位
-    @param: text 薪资描述字符串
-    @rtype: bool
-    """
     try:
         unit = NumericUnit(text.strip())
     except ValueError as e:
@@ -51,11 +41,6 @@ def is_unit_by_ten_thousand(text: str) -> bool:
         return False
 
 def is_unit_by_day(text: str) -> bool:
-    """
-    是否是以天为计量单位
-    @param: text 薪资描述字符串
-    @rtype: bool
-    """
     try:
         unit = DateUnit(text.strip())
     except ValueError as e:
@@ -67,11 +52,6 @@ def is_unit_by_day(text: str) -> bool:
         return False
 
 def is_unit_by_month(text: str) -> bool:
-    """
-    是否是以月为计量单位
-    @param: text 薪资描述字符串
-    @rtype: bool
-    """
     try:
         unit = DateUnit(text.strip())
     except ValueError as e:
@@ -84,12 +64,6 @@ def is_unit_by_month(text: str) -> bool:
 
 
 def is_unit_by_year(text: str) -> bool:
-    """
-    是否是以年为计量单位
-    @param text:
-    @return:
-    @rtype: bool
-    """
     try:
         unit = DateUnit(text.strip())
     except ValueError as e:
